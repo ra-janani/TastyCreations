@@ -22,5 +22,5 @@ interface Repository {
 
     suspend fun getSeafood(): SeafoodModel
 
-    suspend fun getDetails(@Query("i") mealId :String): com.example.tastycreations.data.detail.DetailsModel
+    suspend fun getDetails(mealid:String): com.example.tastycreations.data.detail.DetailsModel
 }

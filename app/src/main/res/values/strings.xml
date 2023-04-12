@@ -22,11 +22,25 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign In</string>
-    <string name="action_sign_up">Register</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="action_register">Register</string>
+    <string name="signout">SignOut</string>
+    <string name="google">Login with Google</string>
+
+    <!-- FACEBOOK LOGIN-->
+
+
+    <string name="facebook_app_id">952803155847964</string>
+    <string name="fb_login_protocol_scheme">fb952803155847964</string>
+    <string name="facebook_client_token">4f433f9bf57094f0fe676de5ceee2761</string>
+
+
+
+
+    <!-- FACEBOOK LOGIN-->
 </resources>

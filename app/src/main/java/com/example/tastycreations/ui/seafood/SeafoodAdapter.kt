@@ -9,7 +9,7 @@ import com.example.tastycreations.R
 import com.example.tastycreations.data.seafood.MealModel
 import com.example.tastycreations.databinding.SeafoodItemsBinding
 
-class SeafoodAdapter(val seafood:List<MealModel?>):
+class SeafoodAdapter(var seafood:List<MealModel?>):
     RecyclerView.Adapter<com.example.tastycreations.ui.seafood.SeafoodAdapter.ViewHolder>(){
 
     var onItemClick:((MealModel)->Unit)?=null
@@ -38,13 +38,18 @@ class SeafoodAdapter(val seafood:List<MealModel?>):
 
     // Handle the CURRENT item you are on
     override fun onBindViewHolder(holder: com.example.tastycreations.ui.seafood.SeafoodAdapter.ViewHolder, position: Int) {
-        holder.displayData(seafood?.get(position))
+        holder.displayData(seafood[position])
         holder.itemView.setOnClickListener {
             seafood?.get(position)?.let {
                 onItemClick?.invoke(it)
 
             }
         }
+    }
+    fun updateData(filteredItems: ArrayList<com.example.tastycreations.data.seafood.MealModel?>) {
+
+        seafood=filteredItems
+        notifyDataSetChanged()
     }
 }
 

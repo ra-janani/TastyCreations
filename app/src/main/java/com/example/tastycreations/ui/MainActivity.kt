@@ -2,7 +2,8 @@ package com.example.tastycreations.ui
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
+import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -14,6 +15,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tastycreations.R
 import com.example.tastycreations.databinding.ActivityMainBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,10 +48,27 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_seafood
             ), drawerLayout
         )
-
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.btn_signout -> {
+                Firebase.auth.signOut()
+
+                Toast.makeText(baseContext,
+                    "You have been signed out!",
+                    Toast.LENGTH_LONG)
+                    .show()
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.loginFragment3)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+
+
+        }
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

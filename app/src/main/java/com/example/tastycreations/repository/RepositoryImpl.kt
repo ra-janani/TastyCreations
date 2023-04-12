@@ -19,6 +19,6 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getSeafood() = apiRequest.getSeafood()
 
-    override suspend fun getDetails(@Query("i") mealId :String) = apiRequest.getDetail(mealId)
+    override suspend fun getDetails(mealId :String) = apiRequest.getDetail(mealId)
 
 }

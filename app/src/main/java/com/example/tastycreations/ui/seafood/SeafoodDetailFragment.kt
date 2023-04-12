@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.tastycreations.data.detail.DetailsModel
 import com.example.tastycreations.data.detail.MealModel
+import com.example.tastycreations.databinding.FragmentDetailBinding
 import com.example.tastycreations.databinding.FragmentSeafoodDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,13 +23,14 @@ class SeafoodDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val sf = arguments?.getSerializable("SeaFoodItem") as com.example.tastycreations.data.seafood.MealModel
+        _binding = FragmentSeafoodDetailBinding.inflate(inflater, container, false)
+        val sf = arguments?.getSerializable("SeaFoodItem") as? com.example.tastycreations.data.seafood.MealModel
         detailViewModel.details.observe(viewLifecycleOwner){
             it?.let{
                 displayMeal(it)
             }
         }
-        detailViewModel.getDetailsData(sf.idMeal)
+        detailViewModel.getDetailsData(sf?.idMeal?:"-")
         return binding.root
     }
     private fun displayMeal(detailsModel: DetailsModel) {

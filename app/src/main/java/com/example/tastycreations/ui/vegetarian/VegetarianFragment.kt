@@ -102,29 +102,3 @@ class VegetarianFragment : Fragment() {
         _binding = null
     }
 }
-
-/*        binding.searchview.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
-            androidx.appcompat.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                //TODO("Not yet implemented")
-                return false
-
-            }
-
-
-            override fun onQueryTextChange(newText: String): Boolean {
-
-                val filteredList = vegetarian.meals.filter {
-                    it?.strMeal?.startsWith(newText, ignoreCase = true) ?: false
-                }
-
-                val filteredItems =MealModel()
-                for (i in filteredList) {
-                    filteredItems.add(i)
-                }
-                vegetarianAdapter.updateData(filteredItems)
-                return true
-            }
-        })*/
-
-
